@@ -15,4 +15,5 @@
     <string name="player_name">Nome do competidor</string>
     <string name="game_type">Tipo de jogo</string>
     <string name="start_game">Iniciar Jogo</string>
+    <string name="start_game_alone">Jogar sozinho</string>
 </resources>

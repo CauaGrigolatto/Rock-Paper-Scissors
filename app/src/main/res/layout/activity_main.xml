@@ -8,15 +8,27 @@
     android:layout_height="match_parent"
     android:padding="8dp"
     tools:context=".view.MainActivity">
+
     <Button
-        android:id="@+id/button_start"
+        android:id="@+id/button_start_multiplayer_game"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
         android:text="@string/start_game"
+        android:layout_marginBottom="34dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_start_single_player_game"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button_start_single_player_game"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_game_alone"
+        android:layout_marginBottom="34dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
     <EditText
         android:id="@+id/edittext_player1"
         android:layout_width="match_parent"
@@ -35,14 +47,16 @@
         android:maxLength="10"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edittext_player1" />
+
     <Spinner
         android:id="@+id/spinner_buttles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/label_type" />
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/label_type"
+        app:layout_constraintStart_toEndOf="@+id/label_type"
+        app:layout_constraintTop_toTopOf="@+id/label_type" />
+
     <TextView
         android:id="@+id/label_type"
         android:layout_width="wrap_content"

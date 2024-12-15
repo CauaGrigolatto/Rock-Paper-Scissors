@@ -20,7 +20,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun configListener() {
-        binding.buttonStart.setOnClickListener { startGame() }
+        binding.buttonStartMultiplayerGame.setOnClickListener { startMultiplayerGame() }
+        binding.buttonStartSinglePlayerGame.setOnClickListener { startSinglePlayerGame() }
     }
     private fun configSpinner() {
         val adapter = ArrayAdapter<String>(
@@ -34,16 +35,27 @@ class MainActivity : AppCompatActivity() {
         // Esconder a ActionBar se ela existir no tema.
         supportActionBar?.hide()
     }
-    private fun startGame() {
-        val battles: Int = when (binding.spinnerButtles.selectedItemPosition) {
+    private fun startMultiplayerGame() {
+        val rounds = getRounds()
+        val mIntent = Intent(this, MultiplayerMatchActivity::class.java)
+        mIntent.putExtra(Constants.KEY_PLAYER_1, binding.edittextPlayer1.text.toString())
+        mIntent.putExtra(Constants.KEY_PLAYER_2, binding.edittextPlayer2.text.toString())
+        mIntent.putExtra(Constants.KEY_ROUNDS, rounds)
+        startActivity(mIntent)
+    }
+
+    private fun startSinglePlayerGame() {
+        val rounds = getRounds()
+        val mIntent = Intent(this, SinglePlayerMatchActivity::class.java)
+        mIntent.putExtra(Constants.KEY_ROUNDS, rounds)
+        startActivity(mIntent)
+    }
+
+    private fun getRounds(): Int {
+        return when (binding.spinnerButtles.selectedItemPosition) {
             0 -> 1
             1 -> 3
             else -> 5
         }
-        val mIntent = Intent(this, MatchActivity::class.java)
-        mIntent.putExtra(Constants.KEY_PLAYER_1, binding.edittextPlayer1.text.toString())
-        mIntent.putExtra(Constants.KEY_PLAYER_2, binding.edittextPlayer2.text.toString())
-        mIntent.putExtra(Constants.KEY_ROUNDS, battles)
-        startActivity(mIntent)
     }
 }

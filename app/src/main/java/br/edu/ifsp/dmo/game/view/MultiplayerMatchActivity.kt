@@ -11,13 +11,13 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import br.edu.ifsp.dmo.game.R
-import br.edu.ifsp.dmo.game.databinding.ActivityMatchBinding
+import br.edu.ifsp.dmo.game.databinding.ActivityMultiplayerMatchBinding
 import br.edu.ifsp.dmo.game.model.Match
 import br.edu.ifsp.dmo.game.model.Player
 import br.edu.ifsp.dmo.game.model.Weapon
 
-class MatchActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMatchBinding
+class MultiplayerMatchActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMultiplayerMatchBinding
     private lateinit var resultLauncher: ActivityResultLauncher<Intent>
     private lateinit var match: Match
     private var weaponPlayer1: Weapon? = null
@@ -26,7 +26,7 @@ class MatchActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMatchBinding.inflate(layoutInflater)
+        binding = ActivityMultiplayerMatchBinding.inflate(layoutInflater)
         setContentView(binding.root)
         openBundle()
         updateUI()
